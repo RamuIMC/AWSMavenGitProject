@@ -78,7 +78,6 @@
  
     	</bean>
   
-     	      <bean id="BooksDAO" class="com.ang.dao.BookDaoImpl"></bean> 
         <tx:annotation-driven transaction-manager="transactionManager"/>  
     	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         	<property name="sessionFactory" ref="sessionFactory" />
