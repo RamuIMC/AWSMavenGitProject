@@ -3,7 +3,9 @@
  */
 package com.project.Dao;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.SessionFactory;
@@ -56,6 +58,46 @@ public class BookInfoDaoImpl implements BookInfoDao{
 		
 		
 		return bookInfoDto;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<BookInfoDto> getAllBooks() {
+		
+		Set<String> setAngBookGenre;
+		List<BookInfoDto> listOfBooks = new ArrayList<BookInfoDto>();
+		BookInfoDto bookInfoDto;
+		
+		List<AngBook> angBooks = (ArrayList<AngBook>) sessionFactory.getCurrentSession().createQuery("from AngBook").list();
+		
+		for(AngBook angBook: angBooks){
+			
+			bookInfoDto = new BookInfoDto();
+			setAngBookGenre = new HashSet<String>();
+			
+			Price price = angBook.getPrice();
+			int bookAmount = price.getAmount();
+			
+			bookInfoDto.setBookId(angBook.getId());
+			bookInfoDto.setBookName(angBook.getBookName());
+			bookInfoDto.setBookAuthor(angBook.getBookAuthor());
+			bookInfoDto.setCountry(angBook.getCountry());
+			bookInfoDto.setLanguage(angBook.getLanguage());
+			bookInfoDto.setPages(angBook.getPages());
+			bookInfoDto.setPrice(bookAmount);
+			bookInfoDto.setPubDate(angBook.getPubdate());
+			bookInfoDto.setSeries(angBook.getSeries());
+		
+			for(AngBookGenre bookGenre : angBook.getAngBookGenres()){
+				
+				setAngBookGenre.add(bookGenre.getBookGenre().getGenre());
+				
+			}
+			bookInfoDto.setGenre(setAngBookGenre);
+		
+			listOfBooks.add(bookInfoDto);
+		}
+		return listOfBooks;
 	}
 
 }

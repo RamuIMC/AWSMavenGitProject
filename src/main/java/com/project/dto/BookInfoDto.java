@@ -14,6 +14,7 @@ public class BookInfoDto {
 	private String language;
 	private String series;
 	private Date pubDate;
+	private String bookDesc;
 	private Set<String> genre;
 	
 	
@@ -22,9 +23,12 @@ public class BookInfoDto {
 	}
 	
 	
+	
+	
+	
 	public BookInfoDto(Integer bookId, int price, String bookName,
 			String bookAuthor, String country, int pages, String language,
-			String series, Date pubDate, Set<String> genre) {
+			String series, Date pubDate, String bookDesc, Set<String> genre) {
 	
 		this.bookId = bookId;
 		this.price = price;
@@ -35,9 +39,14 @@ public class BookInfoDto {
 		this.language = language;
 		this.series = series;
 		this.pubDate = pubDate;
+		this.bookDesc = bookDesc;
 		this.genre = genre;
 	}
-	
+
+
+
+
+
 	public Integer getBookId() {
 		return bookId;
 	}
@@ -98,6 +107,21 @@ public class BookInfoDto {
 	public void setGenre(Set<String> genre) {
 		this.genre = genre;
 	}
+
+
+
+
+	public String getBookDesc() {
+		return bookDesc;
+	}
+
+
+
+
+	public void setBookDesc(String bookDesc) {
+		this.bookDesc = bookDesc;
+	}
+	
 	
 	
 	

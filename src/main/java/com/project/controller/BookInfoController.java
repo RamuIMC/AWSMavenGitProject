@@ -1,5 +1,7 @@
 package com.project.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,14 @@ public class BookInfoController {
 		
 		
 		return bookInfoService.getBookById(bookId);
+		
+	}
+	
+	@RequestMapping(value="/getallbooks",method=RequestMethod.GET)
+	public List<BookInfoDto> getAllBooks(){
+		
+		
+		return bookInfoService.getAllBooks();
 		
 	}
 	
