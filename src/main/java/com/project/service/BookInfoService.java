@@ -9,5 +9,8 @@ public interface BookInfoService {
 	public BookInfoDto getBookById(int bookId);
 	
 	public List<BookInfoDto> getAllBooks();
+	
+	
+	public BookInfoDto saveBook(BookInfoDto bookInfoDto);
 
 }

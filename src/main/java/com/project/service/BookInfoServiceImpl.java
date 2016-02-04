@@ -27,8 +27,16 @@ public class BookInfoServiceImpl implements BookInfoService{
 	@Override
 	@Transactional
 	public List<BookInfoDto> getAllBooks() {
-		// TODO Auto-generated method stub
+		
 		return bookInfoDao.getAllBooks();
+	}
+
+
+	@Override
+	@Transactional
+	public BookInfoDto saveBook(BookInfoDto bookInfoDto) {
+		// TODO Auto-generated method stub
+		return bookInfoDao.saveBook(bookInfoDto);
 	}
 	
 	

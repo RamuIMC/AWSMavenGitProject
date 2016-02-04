@@ -5,11 +5,15 @@ package com.project.model;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+
 import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -84,7 +88,7 @@ public class AngBook implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name = "price_id", nullable = false)
 	public Price getPrice() {
 		return this.price;
@@ -177,7 +181,7 @@ public class AngBook implements java.io.Serializable {
 		this.userDetailsAngBooks = userDetailsAngBooks;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "angBook")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "angBook",cascade=CascadeType.ALL)
 	public Set<AngBookGenre> getAngBookGenres() {
 		return this.angBookGenres;
 	}
