@@ -7,6 +7,10 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'GetAllBooksController',
 		templateUrl:'resources/templates/home.html'
 			
+	}).when("/second",{
+		
+		templateUrl:'resources/templates/page2.html'
+		
 	});
 	
 	

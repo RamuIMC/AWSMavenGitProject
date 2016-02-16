@@ -18,7 +18,7 @@
 
 
 
-<a href ="#abc">Get All Books</a>
+<a href ="#/second">Second Page</a>
 
 <div data-ng-view></div>
 
