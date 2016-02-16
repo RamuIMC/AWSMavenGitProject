@@ -6,49 +6,24 @@
 
 <link href="resources/styles/main.css" rel="stylesheet" />
 <link href="resources/styles/bootstrap.min.css" rel="stylesheet" />
-<script src="resources/scripts/angular.min.js" ></script>
+<script src="resources/scripts/angular.js" ></script>
+<script src="resources/scripts/angular-route.js" ></script>
+
+
 
 </head>
-<body data-ng-app = "MyApp" data-ng-controller = "GetAllBooksController">
+<body data-ng-app = "MyApp">
 
-<h2>{{ title }}</h2>
-
-
-<div class= "main">
-<div class= "container">
-<div class= "col-xs-2"></div>
-<div class= "col-xs-9">
-<div data-ng-repeat="book in books" class="col-md-4">
-
-<p > {{book.price | currency}}</p>
-<p > {{book.bookName}}</p>
-<p > {{book.bookAuthor}}</p>
-<span >Genre: </span>
-<span  data-ng-repeat="genre in book.genre"> {{genre}}</span>
-<p  data-ng-show="book.series"> Series: {{book.series}}</p>
-
-<p > {{book.pubDate | date}}</p>
+<h2>ng-view example</h2>
 
 
 
+<a href ="#abc">Get All Books</a>
 
-</div>
-
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
+<div data-ng-view></div>
 
 <script src ="resources/scripts/MyApp.js"></script>
 <script src ="resources/scripts/controller/GetAllBooksController.js"></script>
- <script src ="resources/scripts/factory/forecast.js"></script> 
+ <script src ="resources/scripts/services/forecast.js"></script> 
 </body>
 </html>
