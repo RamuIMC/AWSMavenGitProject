@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<base href ="/AWSMavenGitProject/">
 <title>Angular Book Application</title>
 
 <link href="resources/styles/main.css" rel="stylesheet" />
@@ -18,7 +20,7 @@
 
 
 
-<a href ="#/second">Second Page</a>
+<a href ="second">Second Page</a>
 
 <div data-ng-view></div>
 

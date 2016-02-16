@@ -1,6 +1,6 @@
 var app = angular.module('MyApp', ['ngRoute']);
 
-app.config(['$routeProvider',function($routeProvider){
+app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
 	
 	$routeProvider.when("/",{
 		
@@ -12,6 +12,8 @@ app.config(['$routeProvider',function($routeProvider){
 		templateUrl:'resources/templates/page2.html'
 		
 	});
+	
+	$locationProvider.html5Mode(true);
 	
 	
 }]);
