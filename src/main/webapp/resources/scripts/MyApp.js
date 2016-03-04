@@ -1,11 +1,18 @@
 var app = angular.module('MyApp', ['ngRoute']);
 
-app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
+app.config(['$routeProvider',function($routeProvider){
 	
 	$routeProvider.when("/",{
 		
 		controller:'GetAllBooksController',
-		templateUrl:'resources/templates/home.html'
+		templateUrl:'resources/templates/home.html',
+		resolve :{
+			
+			allbooks : function(forecast){
+				return forecast.getAllBooks();
+				
+			}
+		}
 			
 	}).when("/second",{
 		
@@ -13,7 +20,20 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider,$locati
 		
 	});
 	
-	$locationProvider.html5Mode(true);
+	//$locationProvider.html5Mode(true);
 	
 	
 }]);
+
+app.run(['$rootScope', function($root) {
+	  $root.$on('$routeChangeStart', function(e, curr, prev) { 
+	    if (curr.$$route && curr.$$route.resolve) {
+	      // Show a loading message until promises aren't resolved
+	      $root.loadingView = true;
+	    }
+	  });
+	  $root.$on('$routeChangeSuccess', function(e, curr, prev) { 
+	    // Hide loading message
+	    $root.loadingView = false;
+	  });
+	}]);
