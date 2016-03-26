@@ -1,12 +1,2 @@
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\model\UserDetails.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\service\BookInfoService.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\controller\BookInfoController.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\model\BookGenre.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\service\BookInfoServiceImpl.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\model\AngBook.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\Dao\BookInfoDaoImpl.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\Dao\BookInfoDao.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\model\AngBookGenre.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\model\Price.java
-D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\model\UserDetailsAngBook.java
+D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\manager\CustomUserDetailsService.java
 D:\Ramu\Angular\AWSMavenGitProject\AWSMavenGitProject\src\main\java\com\project\dto\BookInfoDto.java

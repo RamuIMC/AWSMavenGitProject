@@ -1,6 +1,6 @@
 package com.project.model;
 
-// Generated 4 Feb, 2016 3:08:19 PM by Hibernate Tools 4.0.0
+// Generated 26 Mar, 2016 2:28:40 PM by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;
@@ -39,9 +39,8 @@ public class AngBook implements java.io.Serializable {
 	private String language;
 	private String series;
 	private String bookDesc;
-	private Set<UserDetailsAngBook> userDetailsAngBooks = new HashSet<UserDetailsAngBook>(
-			0);
 	private Set<AngBookGenre> angBookGenres = new HashSet<AngBookGenre>(0);
+	private Set<UserAngBook> userAngBooks = new HashSet<UserAngBook>(0);
 
 	public AngBook() {
 	}
@@ -61,9 +60,8 @@ public class AngBook implements java.io.Serializable {
 
 	public AngBook(Price price, String bookName, String bookAuthor,
 			Date pubdate, String country, int pages, String language,
-			String series, String bookDesc,
-			Set<UserDetailsAngBook> userDetailsAngBooks,
-			Set<AngBookGenre> angBookGenres) {
+			String series, String bookDesc, Set<AngBookGenre> angBookGenres,
+			Set<UserAngBook> userAngBooks) {
 		this.price = price;
 		this.bookName = bookName;
 		this.bookAuthor = bookAuthor;
@@ -73,8 +71,8 @@ public class AngBook implements java.io.Serializable {
 		this.language = language;
 		this.series = series;
 		this.bookDesc = bookDesc;
-		this.userDetailsAngBooks = userDetailsAngBooks;
 		this.angBookGenres = angBookGenres;
+		this.userAngBooks = userAngBooks;
 	}
 
 	@Id
@@ -171,16 +169,6 @@ public class AngBook implements java.io.Serializable {
 		this.bookDesc = bookDesc;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "angBook")
-	public Set<UserDetailsAngBook> getUserDetailsAngBooks() {
-		return this.userDetailsAngBooks;
-	}
-
-	public void setUserDetailsAngBooks(
-			Set<UserDetailsAngBook> userDetailsAngBooks) {
-		this.userDetailsAngBooks = userDetailsAngBooks;
-	}
-
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "angBook",cascade=CascadeType.ALL)
 	public Set<AngBookGenre> getAngBookGenres() {
 		return this.angBookGenres;
@@ -188,6 +176,15 @@ public class AngBook implements java.io.Serializable {
 
 	public void setAngBookGenres(Set<AngBookGenre> angBookGenres) {
 		this.angBookGenres = angBookGenres;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "angBook")
+	public Set<UserAngBook> getUserAngBooks() {
+		return this.userAngBooks;
+	}
+
+	public void setUserAngBooks(Set<UserAngBook> userAngBooks) {
+		this.userAngBooks = userAngBooks;
 	}
 
 }

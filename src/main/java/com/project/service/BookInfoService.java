@@ -3,6 +3,7 @@ package com.project.service;
 import java.util.List;
 
 import com.project.dto.BookInfoDto;
+import com.project.model.User;
 
 public interface BookInfoService {
 	
@@ -10,6 +11,7 @@ public interface BookInfoService {
 	
 	public List<BookInfoDto> getAllBooks();
 	
+	public User getUser(String username);
 	
 	public BookInfoDto saveBook(BookInfoDto bookInfoDto);
 

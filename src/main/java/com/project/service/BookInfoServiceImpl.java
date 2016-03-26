@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project.Dao.BookInfoDao;
 import com.project.dto.BookInfoDto;
+import com.project.model.User;
 
 @Service("bookInfoService")
 public class BookInfoServiceImpl implements BookInfoService{
@@ -25,7 +26,6 @@ public class BookInfoServiceImpl implements BookInfoService{
 
 
 	@Override
-	@Transactional
 	public List<BookInfoDto> getAllBooks() {
 		
 		return bookInfoDao.getAllBooks();
@@ -37,6 +37,14 @@ public class BookInfoServiceImpl implements BookInfoService{
 	public BookInfoDto saveBook(BookInfoDto bookInfoDto) {
 		// TODO Auto-generated method stub
 		return bookInfoDao.saveBook(bookInfoDto);
+	}
+
+
+	@Override
+	@Transactional
+	public User getUser(String username) {
+		
+		return bookInfoDao.getUser(username);
 	}
 	
 	

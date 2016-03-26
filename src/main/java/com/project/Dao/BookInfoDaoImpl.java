@@ -12,12 +12,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.project.dto.BookInfoDto;
 import com.project.model.AngBook;
 import com.project.model.AngBookGenre;
 import com.project.model.BookGenre;
 import com.project.model.Price;
+import com.project.model.User;
 
 /**
  * @author Ramakrishna
@@ -65,6 +67,7 @@ public class BookInfoDaoImpl implements BookInfoDao{
 
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transactional
 	public List<BookInfoDto> getAllBooks() {
 		
 		Set<String> setAngBookGenre;
@@ -171,6 +174,17 @@ public class BookInfoDaoImpl implements BookInfoDao{
 		session.save(angBook);
 		
 		return bookInfoDto;
+	}
+
+	@Override
+	public User getUser(String username) {
+		
+		System.out.println("QUERY IS:");
+		
+		User user = (User) sessionFactory.getCurrentSession().createQuery("from User where userName = '"+username+"'").list().get(0);
+		
+		
+		return user;
 	}
 
 }

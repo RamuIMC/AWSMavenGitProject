@@ -1,6 +1,6 @@
 package com.project.model;
 
-// Generated 4 Feb, 2016 3:08:19 PM by Hibernate Tools 4.0.0
+// Generated 26 Mar, 2016 2:28:40 PM by Hibernate Tools 4.0.0
 
 import java.util.HashSet;
 import java.util.Set;

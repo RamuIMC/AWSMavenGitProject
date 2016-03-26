@@ -2,11 +2,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Hello AngularJS</title>
 </head>
 <body>
 
-<p>2nd ANG Page</p>
+<div data-ng-show="authenticated" class="container">
+    <h1>Greeting</h1>
+    <div data-ng-cloak class="ng-cloak">
+      <p>The ID is {{greeting.id}}</p>
+      <p>The content is {{greeting.content}}</p>
+    </div>
+  </div>
+  
+  <div  data-ng-show="!authenticated">
+    <p>Login to see your greeting</p>
+</div>
 
 </body>
 </html>

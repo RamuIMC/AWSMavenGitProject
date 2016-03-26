@@ -1,12 +1,1 @@
-com\project\model\Price.class
-com\project\service\BookInfoServiceImpl.class
-com\project\Dao\BookInfoDao.class
-com\project\model\UserDetails.class
-com\project\Dao\BookInfoDaoImpl.class
-com\project\model\AngBookGenre.class
-com\project\model\BookGenre.class
-com\project\controller\BookInfoController.class
 com\project\dto\BookInfoDto.class
-com\project\model\AngBook.class
-com\project\model\UserDetailsAngBook.class
-com\project\service\BookInfoService.class

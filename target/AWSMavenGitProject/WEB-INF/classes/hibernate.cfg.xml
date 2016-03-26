@@ -9,9 +9,10 @@
         <mapping class="com.project.model.Price"/>
         <mapping class="com.project.model.AngBookGenre"/>
         <mapping class="com.project.model.BookGenre"/>
-        
-         <mapping class="com.project.model.UserDetails"/>
-         <mapping class="com.project.model.UserDetailsAngBook"/>
+        <mapping class="com.project.model.Role"/>
+        <mapping class="com.project.model.UserRole"/>
+        <mapping class="com.project.model.User"/>
+        <mapping class="com.project.model.UserAngBook"/>
           
         
     </session-factory>
