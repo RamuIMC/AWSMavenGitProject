@@ -7,15 +7,19 @@
       <mvc:annotation-driven />
      <http auto-config="true" use-expressions="true">
 	
-		<!-- <intercept-url pattern="/sec/moderation.html" access="ROLE_MODERATOR" />
-		<intercept-url pattern="/collegeprofile" access="isAuthenticated()" /> -->
+		<!-- <intercept-url pattern="/sec/moderation.html" access="ROLE_MODERATOR" /> -->
+		<intercept-url pattern="/welcome" access="hasAuthority('ADMIN')"/> 
 			
 		<form-login login-page="/login"  default-target-url="/welcome" authentication-failure-url="/login?error=true" />
+		
+		<!-- <access-denied-handler error-page="/403" /> -->
 		
 		<logout logout-success-url="/home.html" />
 		<csrf/>
 		
 	</http>
+	
+	<global-method-security pre-post-annotations="enabled"/>
 	<beans:bean id="customUserDetailsService" class="com.project.manager.CustomUserDetailsService">
 	</beans:bean>
 	<authentication-manager>
