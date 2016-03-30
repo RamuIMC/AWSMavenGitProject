@@ -11,18 +11,22 @@
 		<intercept-url pattern="/welcome" access="hasAuthority('ADMIN')"/> 
 		<intercept-url pattern="/welcome-abc" access="hasAuthority('USER')"/>
 			
-		<form-login login-page="/login"  default-target-url="/welcome" authentication-failure-url="/login?error=true" />
+		<form-login login-page="/login"  authentication-success-handler-ref="ddAuthenticationSuccessHandler"  default-target-url="/welcome" authentication-failure-url="/login?error=true" />
 		
 		<!-- <access-denied-handler error-page="/403" /> -->
 		
 		<logout logout-success-url="/home.html" />
-		<csrf/>
+		 <csrf disabled="true"/> 
 		
 	</http>
 	
 	<global-method-security pre-post-annotations="enabled"/>
+	<beans:bean id="ddAuthenticationSuccessHandler" class="com.project.manager.DDAuthenticationSuccessHandler">
+	</beans:bean>
+	
 	<beans:bean id="customUserDetailsService" class="com.project.manager.CustomUserDetailsService">
 	</beans:bean>
+	
 	<authentication-manager>
 		<authentication-provider user-service-ref="customUserDetailsService">
 			<!-- <password-encoder ref="encoder"></password-encoder> -->
