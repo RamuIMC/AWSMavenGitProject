@@ -11,10 +11,12 @@ import java.util.List;
 
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -68,12 +70,23 @@ public class BookInfoController {
 	
 
 	@RequestMapping(value="/welcome", method=RequestMethod.GET)
-    public ModelAndView welcome(SecurityContextHolderAwareRequestWrapper request ,Principal principal, Model model) {
-	
-				
+    public ModelAndView welcome(SecurityContextHolderAwareRequestWrapper request ,Principal principal, Model model,Authentication authentication) {
+		
+		System.out.println("Roles : " +authentication.getAuthorities());
 			model.addAttribute("username", principal.getName());
 			
 			return new ModelAndView("welcome");
+		
+		
+        
+    }
+	@RequestMapping(value="/welcome-abc", method=RequestMethod.GET)
+    public String welcomeABC(SecurityContextHolderAwareRequestWrapper request ,Principal principal, Model model,Authentication authentication) {
+		
+		System.out.println("Roles : " +authentication.getAuthorities());
+			model.addAttribute("username", principal.getName());
+			
+			return "welcome";
 		
 		
         

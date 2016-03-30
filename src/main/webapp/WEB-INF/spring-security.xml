@@ -9,6 +9,7 @@
 	
 		<!-- <intercept-url pattern="/sec/moderation.html" access="ROLE_MODERATOR" /> -->
 		<intercept-url pattern="/welcome" access="hasAuthority('ADMIN')"/> 
+		<intercept-url pattern="/welcome-abc" access="hasAuthority('USER')"/>
 			
 		<form-login login-page="/login"  default-target-url="/welcome" authentication-failure-url="/login?error=true" />
 		
