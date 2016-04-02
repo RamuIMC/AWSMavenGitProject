@@ -5,13 +5,15 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
       <mvc:annotation-driven />
-     <http auto-config="true" use-expressions="true">
+     <http auto-config="true" use-expressions="true" entry-point-ref="myAuthenticationEntryPoint">
 	
 		<!-- <intercept-url pattern="/sec/moderation.html" access="ROLE_MODERATOR" /> -->
 		<intercept-url pattern="/welcome" access="hasAuthority('ADMIN')"/> 
+		<intercept-url pattern="/getallbooks" access="hasAuthority('ADMIN')"/> 
 		<intercept-url pattern="/welcome-abc" access="hasAuthority('USER')"/>
+		<custom-filter ref="tokenValidationFilter" before="BASIC_AUTH_FILTER"/>
 			
-		<form-login login-page="/login"  authentication-success-handler-ref="ddAuthenticationSuccessHandler"  default-target-url="/welcome" authentication-failure-url="/login?error=true" />
+		<form-login login-page="/login"  authentication-success-handler-ref="ddAuthenticationSuccessHandler"  authentication-failure-handler-ref="ddAuthenticationFailureHandler"  default-target-url="/welcome" authentication-failure-url="/login?error=true" />
 		
 		<!-- <access-denied-handler error-page="/403" /> -->
 		
@@ -21,7 +23,16 @@
 	</http>
 	
 	<global-method-security pre-post-annotations="enabled"/>
+	
+	<beans:bean id="tokenValidationFilter" class="com.project.manager.TokenValidationFilter">
+	</beans:bean>
+	
+	<beans:bean id="myAuthenticationEntryPoint" class="com.project.manager.MyAuthenticationEntryPoint">
+	</beans:bean>
 	<beans:bean id="ddAuthenticationSuccessHandler" class="com.project.manager.DDAuthenticationSuccessHandler">
+	</beans:bean>
+	
+	<beans:bean id="ddAuthenticationFailureHandler" class="com.project.manager.DDAuthenticationFailureHandler">
 	</beans:bean>
 	
 	<beans:bean id="customUserDetailsService" class="com.project.manager.CustomUserDetailsService">

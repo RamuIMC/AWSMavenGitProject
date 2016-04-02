@@ -44,7 +44,7 @@ public class BookInfoController {
 		return bookInfoService.getBookById(bookId);
 		
 	}
-	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/getallbooks",method=RequestMethod.GET)
 	public List<BookInfoDto> getAllBooks(){
 		
@@ -68,7 +68,7 @@ public class BookInfoController {
         return new ModelAndView("login");
     }
 	
-
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/welcome", method=RequestMethod.GET)
     public ModelAndView welcome(SecurityContextHolderAwareRequestWrapper request ,Principal principal, Model model,Authentication authentication) {
 		
@@ -80,6 +80,7 @@ public class BookInfoController {
 		
         
     }
+	@PreAuthorize("hasAuthority('USER')")
 	@RequestMapping(value="/welcome-abc", method=RequestMethod.GET)
     public String welcomeABC(SecurityContextHolderAwareRequestWrapper request ,Principal principal, Model model,Authentication authentication) {
 		
