@@ -44,8 +44,8 @@ public class BookInfoController {
 		return bookInfoService.getBookById(bookId);
 		
 	}
-	@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value="/getallbooks",method=RequestMethod.GET)
+	//@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value="/webServices/getallbooks",method=RequestMethod.GET)
 	public List<BookInfoDto> getAllBooks(){
 		
 		

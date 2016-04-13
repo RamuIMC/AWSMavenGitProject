@@ -23,11 +23,23 @@ public class TokenValidationFilter extends OncePerRequestFilter {
 	UserDetailsService customUserDetailsService;
 	
 	
+	@SuppressWarnings("unused")
 	@Override
 	protected void doFilterInternal(HttpServletRequest request,
 			HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
-	String token = request.getHeader("AccessToken");
+		
+		
+		Authentication auth2= SecurityContextHolder.getContext().getAuthentication();
+		doFilter(request, response, filterChain);
+	/*String token = request.getHeader("AccessToken");
+	String authorization = request.getHeader("Authorization");
+
+	String username = request.getParameter("username");
+	String password = request.getParameter("password");	
+	
+	if(token.equals(username)){
+	
 	Authentication auth= SecurityContextHolder.getContext().getAuthentication();
 		if(token !=null || auth !=null){
 			
@@ -39,14 +51,18 @@ public class TokenValidationFilter extends OncePerRequestFilter {
 			
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 			
+			
+				
 			doFilter(request, response, filterChain);
-	
 		
 		}
 		else{
 			
 			doFilter(request, response, filterChain);
 		}
+	}*/
 	}
+	
+
 
 }

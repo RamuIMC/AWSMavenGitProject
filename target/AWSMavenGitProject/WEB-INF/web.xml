@@ -7,7 +7,7 @@
 	</listener>
     <context-param>
 	    <param-name>contextConfigLocation</param-name>
-	    <param-value>/WEB-INF/applicationContext.xml,/WEB-INF/spring-security.xml</param-value>
+	    <param-value>/WEB-INF/applicationContext.xml</param-value>
 	</context-param> 
 	<servlet>
         <servlet-name>entity</servlet-name>
@@ -19,9 +19,9 @@
         <servlet-name>entity</servlet-name>
         <url-pattern>/</url-pattern>
          <url-pattern>/rest</url-pattern>
-       </servlet-mapping> 
+       </servlet-mapping>
        
-     <filter>
+     <!-- <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>
           org.springframework.web.filter.DelegatingFilterProxy
@@ -30,5 +30,10 @@
       <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
-      </filter-mapping>  
+      </filter-mapping>   -->  
+       
+       <error-page>
+			<error-code>403</error-code>
+			<location>/WEB-INF/error.jsp</location>
+		</error-page>
 </web-app>

@@ -1,6 +1,16 @@
-var app = angular.module('MyApp', ['ngRoute']);
+var app = angular.module('MyApp', []);
 
-app.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
+
+app.controller('SocialController', function($window, $scope) {
+	$scope.shareOnFacebook = function() {
+		$window.location.replace("social/facebook/signin");
+	};
+	$scope.shareOnTwitter = function() {
+		$window.location.replace("social/twitter/signin");
+	};
+});
+
+/*app.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
 	
 	$routeProvider.when("/abc",{
 		
@@ -21,19 +31,19 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvid
 		controllerAs: 'controller'
 		
 	}).otherwise("/");
-	/*.when("/login",{
+	.when("/login",{
 		
 		templateUrl:'resources/templates/login.html',
 		controller: 'NavigationController',
 		controllerAs: 'controller'
 		
 		
-	})*/
+	})
 	
 	//$locationProvider.html5Mode(true);
 	
 	$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
-}]);
+}]);*/
 
 
 

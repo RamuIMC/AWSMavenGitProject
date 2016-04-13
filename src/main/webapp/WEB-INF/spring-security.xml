@@ -9,9 +9,10 @@
 	
 		<!-- <intercept-url pattern="/sec/moderation.html" access="ROLE_MODERATOR" /> -->
 		<intercept-url pattern="/welcome" access="hasAuthority('ADMIN')"/> 
-		<intercept-url pattern="/getallbooks" access="hasAuthority('ADMIN')"/> 
+		<intercept-url pattern="/getallbooks" access="hasAuthority('ADMIN')" /> 
 		<intercept-url pattern="/welcome-abc" access="hasAuthority('USER')"/>
-		<custom-filter ref="tokenValidationFilter" before="BASIC_AUTH_FILTER"/>
+		
+		
 			
 		<form-login login-page="/login"  authentication-success-handler-ref="ddAuthenticationSuccessHandler"  authentication-failure-handler-ref="ddAuthenticationFailureHandler"  default-target-url="/welcome" authentication-failure-url="/login?error=true" />
 		
@@ -21,6 +22,16 @@
 		 <csrf disabled="true"/> 
 		
 	</http>
+	
+	
+	
+	<!-- <beans:alias name="filterChainProxy" alias="springSecurityFilterChain"/> -->
+	
+	<beans:bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
+  	<filter-chain-map request-matcher="ant" >
+     <filter-chain pattern="/webServices/**" filters="tokenValidationFilter" />
+           </filter-chain-map>
+	</beans:bean>
 	
 	<global-method-security pre-post-annotations="enabled"/>
 	
