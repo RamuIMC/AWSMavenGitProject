@@ -68,12 +68,12 @@ public class BookInfoController {
         return new ModelAndView("login");
     }
 	
-	@PreAuthorize("hasAuthority('ADMIN')")
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/welcome", method=RequestMethod.GET)
     public ModelAndView welcome(SecurityContextHolderAwareRequestWrapper request ,Principal principal, Model model,Authentication authentication) {
 		
-		System.out.println("Roles : " +authentication.getAuthorities());
-			model.addAttribute("username", principal.getName());
+		//System.out.println("Roles : " +authentication.getAuthorities());
+			model.addAttribute("username", "ABC");
 			
 			return new ModelAndView("welcome");
 		
