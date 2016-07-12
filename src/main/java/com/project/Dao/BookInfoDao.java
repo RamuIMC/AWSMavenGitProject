@@ -9,6 +9,8 @@ public interface BookInfoDao {
 	
 
 	public BookInfoDto getBookById(int bookId);
+	
+	public BookInfoDto getBookByName(String bookName);
 
 	public List<BookInfoDto> getAllBooks();
 	

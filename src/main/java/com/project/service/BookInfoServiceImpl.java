@@ -23,6 +23,13 @@ public class BookInfoServiceImpl implements BookInfoService{
 	
 		return bookInfoDao.getBookById(bookId);
 	}
+	
+	@Override
+	@Transactional
+	public BookInfoDto getBookByName(String bookName) {
+	
+		return bookInfoDao.getBookByName(bookName);
+	}
 
 
 	@Override

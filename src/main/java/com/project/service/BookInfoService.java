@@ -14,5 +14,7 @@ public interface BookInfoService {
 	public User getUser(String username);
 	
 	public BookInfoDto saveBook(BookInfoDto bookInfoDto);
+	
+	public BookInfoDto getBookByName(String bookName);
 
 }

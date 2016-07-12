@@ -25,7 +25,7 @@
   <context:component-scan base-package="com.project.service" />
   <context:component-scan base-package="com.test.service" />
   <context:component-scan base-package="com.project.Dao" />
-   <beans profile = "development">
+   <beans>
     	 
     
     <!-- <bean id="messageSource"
@@ -46,7 +46,7 @@
 			
 		</bean>
         
-      	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+      	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
       	
       	
       	<property name="driverClassName" value="${jdbc.driverClassName}" />
@@ -54,18 +54,32 @@
         <property name="username" value="${jdbc.username}" />
         <property name="password" value="${jdbc.password}" />
       	
-      	</bean>
-        
-      	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        	<property name="dataSource" ref="dataSource" />
+      	</bean> -->
+      	
+      	<bean id="jndiDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    		<property name="jndiName" value="java:/MySqlDS" />
+		</bean>  
+		
+      	<bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+      	
+      		<!-- <property name="persistenceXmlLocation" value="/WEB-INF/persistence.xml" /> -->
         	<property name="packagesToScan" value="com.project.model" />
-        	<property name="hibernateProperties">
-            	<props>
-                	<prop key="hibernate.dialect">${jdbc.dialect}</prop>
-                	<prop key="hibernate.show_sql">true</prop>
-            	</props>
-        	</property>
+        	<property name="dataSource" ref="jndiDataSource" />
+        	<property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        	<property name="jpaProperties">
+			    <props>
+			      <prop key="hibernate.show_sql">true</prop>
+			      <prop key="hibernate.hbm2dll.auto">create</prop>
+			    </props>
+			  </property>
+        	
     	</bean>   
+    	
+    	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			  <property name="showSql" value="true"/>
+			  <property name="generateDdl" value="true"/>
+			  <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect"/>
+		</bean>
     
     	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
          <!-- setting maximum upload size -->
@@ -74,9 +88,9 @@
     	</bean>
   
         <tx:annotation-driven transaction-manager="transactionManager"/>  
-    	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        	<property name="sessionFactory" ref="sessionFactory" />
-    	</bean>
+    	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+      		<property name="entityManagerFactory" ref="entityManagerFactoryBean" />
+  		</bean>
     	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 			<tx:attributes>
 				<tx:method name="find*" read-only="true" />
@@ -85,7 +99,7 @@
 		</tx:advice>
  
 	</beans>
-	<beans profile = "production">
+	<!-- <beans profile = "production">
 	
     	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         	<property name="basenames" value="classpath:messages" />
@@ -111,7 +125,7 @@
     	</bean>   
     
     	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-         <!-- setting maximum upload size -->
+         setting maximum upload size
         	<property name="maxUploadSize" value="100000" />
  
     	</bean>
@@ -127,5 +141,5 @@
 			</tx:attributes>
 		</tx:advice>
  
-	</beans>
+	</beans> -->
 </beans>
