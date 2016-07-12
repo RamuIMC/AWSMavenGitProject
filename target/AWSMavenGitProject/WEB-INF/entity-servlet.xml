@@ -41,11 +41,13 @@
 
     
    <beans>
-   
-   		<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        	<property name="basename" value="classpath:messages" />
-        	<property name="defaultEncoding" value="UTF-8" />
-    	</bean>
+   <bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:application.properties</value>
+		</property>
+	</bean>
+   		
     	
     	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
@@ -53,6 +55,7 @@
         	<property name="prefix" value="/WEB-INF/view/" />
         	<property name="suffix" value=".jsp" />
     	</bean> 
+    	<!-- <import resource="spring-social.xml" /> -->
     
 	</beans>
 </beans>
