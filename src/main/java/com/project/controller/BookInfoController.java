@@ -37,6 +37,7 @@ import com.project.service.BookInfoService;
 
 
 @RestController
+@RequestMapping("/webServices")
 public class BookInfoController {
 	
 	@Autowired

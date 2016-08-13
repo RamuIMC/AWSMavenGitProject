@@ -43,13 +43,13 @@ action="<c:url value='/login' />" method="POST">
 <input type="password" name="password">
 <br>
 
- <input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" /> 
+ <%-- <input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token}" />  --%>
 
-<button type="button"> Login</button>
+<button type="submit"> Login</button>
 
 </form>
-<script>
+<!-- <script>
 $(document).ready(function(){
 	$('button').click(function(){
 
@@ -65,7 +65,7 @@ console.log("getallbooks" +data);
 		});
 });
 </script> 
-
+ -->
 <!-- <h2>Spring Social</h2>
 <div data-ng-app="MyApp">
 	<div data-ng-controller="SocialController">

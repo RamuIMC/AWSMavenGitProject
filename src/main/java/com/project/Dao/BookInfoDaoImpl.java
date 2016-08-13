@@ -196,10 +196,13 @@ public class BookInfoDaoImpl implements BookInfoDao{
 		
 		System.out.println("QUERY IS:");
 		
+		
+		User user = (User) manager.createQuery("from User where userName = '"+username+"'").getResultList().get(0);
+		
 		//User user = (User) sessionFactory.getCurrentSession().createQuery("from User where userName = '"+username+"'").list().get(0);
 		
 		
-		return null;
+		return user;
 	}
 
 	@Override

@@ -3,14 +3,18 @@
 	xmlns:beans="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+	  http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
       <mvc:annotation-driven />
-     <http auto-config="true" use-expressions="true" entry-point-ref="myAuthenticationEntryPoint">
+     <!-- <http auto-config="true" use-expressions="true" entry-point-ref="myAuthenticationEntryPoint"> -->
 	
-		<!-- <intercept-url pattern="/sec/moderation.html" access="ROLE_MODERATOR" /> -->
-		<intercept-url pattern="/welcome" access="hasAuthority('ADMIN')"/> 
+	<http auto-config="true" use-expressions="true" >
+	
+		 <intercept-url pattern="/webServices/**" requires-channel="https"/> 
+		<!-- <intercept-url pattern="/welcome" access="hasAuthority('ADMIN')"/> 
 		<intercept-url pattern="/getallbooks" access="hasAuthority('ADMIN')" /> 
-		<intercept-url pattern="/welcome-abc" access="hasAuthority('USER')"/>
+		<intercept-url pattern="/welcome-abc" access="hasAuthority('USER')"/> -->
 		
 		
 			
@@ -19,7 +23,19 @@
 		<!-- <access-denied-handler error-page="/403" /> -->
 		
 		<logout logout-success-url="/home.html" />
-		 <csrf disabled="true"/> 
+		  <csrf disabled="true"/>  
+		  
+		<port-mappings>
+		
+		<port-mapping http="80" https="443"/>
+        <!-- Websphere default ports -->
+        <port-mapping http="9080" https="9443"/>
+        <!-- Tomcat default ports -->
+        <port-mapping http="8080" https="8443"/>
+        <!-- Jetty custom ports -->
+        <port-mapping http="7777" https="7443"/>
+		
+		</port-mappings>
 		
 	</http>
 	
