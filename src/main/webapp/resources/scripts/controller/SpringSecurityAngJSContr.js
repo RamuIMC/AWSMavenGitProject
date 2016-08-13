@@ -3,7 +3,7 @@
  */
 app.controller('SpringSecurityAngJSContr',['$scope','$http',function($scope,$http){
 
-	$http.get('angjs').success(function(data){
+	$http.get('webServices/angjs').success(function(data){
 		
 		$scope.greeting = data;
 	});

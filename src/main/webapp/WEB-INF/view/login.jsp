@@ -35,8 +35,8 @@ Latest compiled and minified JavaScript
     </div>
 </c:if>
 
-<form id= "form-login"  style="float: middle"
-action="<c:url value='/login' />" method="POST">
+<form id= "form-login"  style="float: middle">
+<%-- action="<c:url value='/login' />" method="POST"> --%>
 <input type="text" name="username">
 <br>
 
@@ -46,26 +46,22 @@ action="<c:url value='/login' />" method="POST">
  <%-- <input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />  --%>
 
-<button type="submit"> Login</button>
+<button type="button"> Login</button>
 
 </form>
-<!-- <script>
+<script>
 $(document).ready(function(){
 	$('button').click(function(){
 
 $.post('login',$('form').serialize(),function(data){
 console.log(data);
-$.get('webServices/getallbooks',function(data){
-
-console.log("getallbooks" +data);
+$.get('webServices/getallbooks');
 	
-})
-	
-});		
+})	
 		});
 });
 </script> 
- -->
+
 <!-- <h2>Spring Social</h2>
 <div data-ng-app="MyApp">
 	<div data-ng-controller="SocialController">
@@ -75,5 +71,8 @@ console.log("getallbooks" +data);
 </div> -->
 
 <script src="resources/scripts/MyApp.js"></script>
+<script src="resources/scripts/services/forecast.js"></script>
+<script src="resources/scripts/controller/GetAllBooksController.js"></script>
+
 </body>
 </html>

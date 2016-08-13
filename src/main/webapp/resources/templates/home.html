@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-
-</head>
 <div class= "container">
 <div class= "col-xs-2"></div>
 <div class= "col-xs-9">
 <div data-ng-repeat="book in books" class="col-md-4">
 
-<p > {{book.price | currency}}</p>
+<p style="color: red"> {{book.price | currency}}</p>
 <p > {{book.bookName}}</p>
 <p > {{book.bookAuthor}}</p>
 <span >Genre: </span>
@@ -31,6 +25,3 @@
 
 
 </div>
-
-
-</html>

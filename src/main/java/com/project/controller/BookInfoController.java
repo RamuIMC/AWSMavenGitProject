@@ -2,6 +2,7 @@ package com.project.controller;
 
 
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -13,6 +14,9 @@ import java.util.List;
 
 
 
+
+import java.util.Map;
+import java.util.UUID;
 
 import javax.ws.rs.QueryParam;
 
@@ -50,6 +54,14 @@ public class BookInfoController {
 		return bookInfoService.getBookById(bookId);
 		
 	}
+	@RequestMapping(value="/angjs",method=RequestMethod.GET)
+	public Map<String,Object> home() {
+		
+		    Map<String,Object> model = new HashMap<String,Object>();
+		    model.put("id", UUID.randomUUID().toString());
+		    model.put("content", "Hello World");
+		    return model;
+	}
 	
 	@RequestMapping(value="/getbook-info",method=RequestMethod.GET)
 	public BookInfoDto getBookByName(@RequestParam("bookName") String bookName ){
@@ -61,7 +73,7 @@ public class BookInfoController {
 	
 	
 	//@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value="/webServices/getallbooks",method=RequestMethod.GET)
+	@RequestMapping(value="/getallbooks",method=RequestMethod.GET)
 	public List<BookInfoDto> getAllBooks(){
 		
 		

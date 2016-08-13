@@ -1,18 +1,18 @@
-var app = angular.module('MyApp', []);
+var app = angular.module('MyApp', ['ngRoute']);
 
 
-app.controller('SocialController', function($window, $scope) {
+/*app.controller('SocialController', function($window, $scope) {
 	$scope.shareOnFacebook = function() {
 		$window.location.replace("social/facebook/signin");
 	};
 	$scope.shareOnTwitter = function() {
 		$window.location.replace("social/twitter/signin");
 	};
-});
+});*/
 
-/*app.config(['$routeProvider','$httpProvider',function($routeProvider,$httpProvider){
+app.config(['$routeProvider',function($routeProvider){
 	
-	$routeProvider.when("/abc",{
+	$routeProvider.when("/getallbooks",{
 		
 		controller:'GetAllBooksController',
 		templateUrl:'resources/templates/home.html',
@@ -26,24 +26,22 @@ app.controller('SocialController', function($window, $scope) {
 			
 	}).when("/second",{
 		
-		templateUrl:'resources/templates/page2.html',
-		controller: 'SpringSecurityAngJSContr',
-		controllerAs: 'controller'
-		
-	}).otherwise("/");
-	.when("/login",{
-		
-		templateUrl:'resources/templates/login.html',
-		controller: 'NavigationController',
-		controllerAs: 'controller'
-		
+		templateUrl:'resources/templates/page2.html'
 		
 	})
+	.when("/login",{
+		
+		templateUrl:'resources/templates/login.html'/*,
+		controller: 'NavigationController',
+		controllerAs: 'controller'*/
+		
+		
+	});
 	
 	//$locationProvider.html5Mode(true);
 	
-	$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
-}]);*/
+	//$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+}]);
 
 
 

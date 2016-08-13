@@ -3,11 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<!-- <base href ="/AWSMavenGitProject/"> -->
+<base href ="/AWSMavenGitProject/">
 <title>Angular Book Application</title>
 
 <link href="resources/styles/main.css" rel="stylesheet" />
 <link href="resources/styles/bootstrap.less" rel="stylesheet" />
+<link href="resources/styles/bootstrap.min.css" rel="stylesheet" />
 <script src="resources/scripts/angular.js" ></script>
 <script src="resources/scripts/angular-route.js" ></script>
 
@@ -43,7 +44,7 @@
   <p>LOADING....</p>
 </div>
 
-<a href ="#second">Second Page</a>
+<a href ="#/getallbooks">Second Page</a>
 
 <div data-ng-view></div>
 <!-- <h4>ABA</h4> -->

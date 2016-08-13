@@ -86,7 +86,7 @@ public class BookInfoDaoImpl implements BookInfoDao{
 		List<BookInfoDto> listOfBooks = new ArrayList<BookInfoDto>();
 		BookInfoDto bookInfoDto;
 		
-		List<AngBook> angBooks = null;
+		List<AngBook> angBooks = manager.createQuery("from AngBook").getResultList();
 				//(ArrayList<AngBook>) sessionFactory.getCurrentSession().createQuery("from AngBook").list();
 		
 		for(AngBook angBook: angBooks){
