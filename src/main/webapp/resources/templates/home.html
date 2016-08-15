@@ -2,15 +2,13 @@
 <div class= "col-xs-2"></div>
 <div class= "col-xs-9">
 <div data-ng-repeat="book in books" class="col-md-4">
-
-<p style="color: red"> {{book.price | currency}}</p>
-<p > {{book.bookName}}</p>
+<p style="color: black "> {{book.bookName}}</p>
 <p > {{book.bookAuthor}}</p>
 <span >Genre: </span>
 <span  data-ng-repeat="genre in book.genre"> {{genre}}</span>
 <p  data-ng-show="book.series"> Series: {{book.series}}</p>
-
 <p > {{book.pubDate | date}}</p>
+<p style="color: red"> {{book.price | currency}}</p>
 
 
 

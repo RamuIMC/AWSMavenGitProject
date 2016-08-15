@@ -2,10 +2,48 @@
  * 
  */
 
-app.controller('NavigationController', function($rootScope, $http, $location) {
+app.controller('NavigationController', ['$scope','forecast','$location','$rootScope',function($scope,forecast,$location,$rootScope){
 	
 	
-	var self = this;
+	
+	$scope.login = function(credentials){
+		
+		forecast.login(credentials).success(function(data){
+			
+			if(data.status === 200){
+				
+				$rootScope.authenticated = true;
+				$location.path("/getallbooks");
+			}
+			else{
+				
+				$scope.message=data.message;
+			}
+			
+		}).error(function(data){
+			
+			if(data.status === 200){
+				
+				$rootScope.authenticated = true;
+				$location.path("/getAllBooks");
+			}
+			else{
+				
+				$scope.message=data.message;
+			}
+			
+		});
+	}; 
+	
+	//$scope.title = 'Ang ng-view Example';
+	
+}]);
+	
+	
+	
+	
+	
+	/*var self = this;
 
 	self.tab = function(route) {
 		return $route.current && route === $route.current.controller;
@@ -59,7 +97,6 @@ app.controller('NavigationController', function($rootScope, $http, $location) {
 		    $rootScope.authenticated = false;
 		    $location.path("/");
 		  
-		};
+		};*/
 	
 	
-});

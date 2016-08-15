@@ -11,6 +11,7 @@ var app = angular.module('MyApp', ['ngRoute']);
 });*/
 
 app.config(['$routeProvider',function($routeProvider){
+	//$locationProvider.html5Mode(true);
 	
 	$routeProvider.when("/getallbooks",{
 		
@@ -31,15 +32,13 @@ app.config(['$routeProvider',function($routeProvider){
 	})
 	.when("/login",{
 		
-		templateUrl:'resources/templates/login.html'/*,
-		controller: 'NavigationController',
-		controllerAs: 'controller'*/
+		templateUrl:'resources/templates/login.html',
+		controller: 'NavigationController'
 		
 		
 	});
 	
-	//$locationProvider.html5Mode(true);
-	
+		
 	//$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 }]);
 

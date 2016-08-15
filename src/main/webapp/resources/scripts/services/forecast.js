@@ -31,6 +31,18 @@ app.factory('forecast',['$http','$timeout',function($http,$timeout){
 		
 		
 		
+	},
+	login:function(credentials){
+		
+		var base_url='http://localhost:8080/AWSMavenGitProject/';
+		return $http({
+		
+			url:base_url+"login",
+			method:'POST',
+			params: { username: credentials.username, password: credentials.password }
+			
+		});
+		
 	}
 	
 		};

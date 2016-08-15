@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
+import com.google.gson.Gson;
+
 public class DDAuthenticationFailureHandler implements AuthenticationFailureHandler{
 
 	@Override
@@ -16,7 +18,15 @@ public class DDAuthenticationFailureHandler implements AuthenticationFailureHand
 			HttpServletResponse response, AuthenticationException exception)
 			throws IOException, ServletException {
 		
-		response.getWriter().print("authentication failure");
+		StatusMessageDto statusMessageDto = new StatusMessageDto();
+		
+		statusMessageDto.setStatus(HttpServletResponse.SC_FORBIDDEN);
+		statusMessageDto.setMessage("Authentication has been failed");
+		
+		
+		String json = new Gson().toJson(statusMessageDto);
+		
+		response.getWriter().print(json);
 		
 	}
 
