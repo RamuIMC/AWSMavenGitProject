@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href = "">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <!-- <base href ="/AWSMavenGitProject/"> -->

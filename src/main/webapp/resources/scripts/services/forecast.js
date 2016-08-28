@@ -17,10 +17,10 @@ app.factory('forecast',['$http','$timeout',function($http,$timeout){
 	
 	getBookInfo: function(item){
 		
-		var base_url='http://localhost:8080/AWSMavenGitProject/';
+		//var base_url='http://localhost:8081/AWSMavenGitProject/';
 		return $http({
 		
-			url:base_url+"/getbook-info/"+item,
+			url:"getbook-info/"+item,
 			method:'GET'
 			
 		}).success(function(data){
@@ -34,10 +34,10 @@ app.factory('forecast',['$http','$timeout',function($http,$timeout){
 	},
 	login:function(credentials){
 		
-		var base_url='http://localhost:8080/AWSMavenGitProject/';
+		//var base_url='http://localhost:8081/AWSMavenGitProject/';
 		return $http({
 		
-			url:base_url+"login",
+			url:"login",
 			method:'POST',
 			params: { username: credentials.username, password: credentials.password }
 			
