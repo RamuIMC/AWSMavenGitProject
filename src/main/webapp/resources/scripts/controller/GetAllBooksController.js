@@ -1,5 +1,5 @@
 
-app.controller('GetAllBooksController',['$scope','allbooks',function($scope,allbooks){
+app.controller('GetAllBooksController',['$scope','forecast','allbooks',function($scope,forecast,allbooks){
 	
 	 /*forecast.getAllBooks().success(function(data){*/
 		

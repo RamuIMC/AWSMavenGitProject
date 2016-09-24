@@ -8,6 +8,7 @@ public class BookInfoDto {
 	private Integer bookId;
 	private int price;
 	private String bookName;
+	private String bookImage;
 	private String bookAuthor;
 	private String country;
 	private int pages;
@@ -21,10 +22,7 @@ public class BookInfoDto {
 	public BookInfoDto(){
 		
 	}
-	
-	
-	
-	
+		
 	
 	public BookInfoDto(Integer bookId, int price, String bookName,
 			String bookAuthor, String country, int pages, String language,
@@ -120,6 +118,16 @@ public class BookInfoDto {
 
 	public void setBookDesc(String bookDesc) {
 		this.bookDesc = bookDesc;
+	}
+
+
+	public String getBookImage() {
+		return bookImage;
+	}
+
+
+	public void setBookImage(String bookImage) {
+		this.bookImage = bookImage;
 	}
 	
 	

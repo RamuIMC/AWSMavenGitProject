@@ -86,6 +86,8 @@ public class BookInfoDaoImpl implements BookInfoDao{
 		List<BookInfoDto> listOfBooks = new ArrayList<BookInfoDto>();
 		BookInfoDto bookInfoDto;
 		
+		String imgBaseUrl="https://s3-us-west-2.amazonaws.com/angularjs-images/";
+		
 		List<AngBook> angBooks = manager.createQuery("from AngBook").getResultList();
 				//(ArrayList<AngBook>) sessionFactory.getCurrentSession().createQuery("from AngBook").list();
 		
@@ -99,6 +101,7 @@ public class BookInfoDaoImpl implements BookInfoDao{
 			
 			bookInfoDto.setBookId(angBook.getId());
 			bookInfoDto.setBookName(angBook.getBookName());
+			bookInfoDto.setBookImage(imgBaseUrl +angBook.getBookName()+"-"+angBook.getId());
 			bookInfoDto.setBookAuthor(angBook.getBookAuthor());
 			bookInfoDto.setCountry(angBook.getCountry());
 			bookInfoDto.setLanguage(angBook.getLanguage());

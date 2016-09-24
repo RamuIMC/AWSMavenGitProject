@@ -1,23 +1,35 @@
 <div class= "container">
-<div class= "col-xs-2"></div>
+<div class= "col-xs-3"></div>
 <div class= "col-xs-3">
 <select id="orderBy" data-ng-model="orderBy" class="form-control col-md-4">
-	<option value="Sort by Price">Sort by Price</option>
+	<option value="" selected>Sort by Price</option>
 	<option value="price-low-high">Price: low - high</option>
 	<option value="price-high-low">Price: high - low</option>
 </select>
 </div>
 </div>
 <div class= "container" data-ng-click="getBookInfo(book.bookId)">
-<div class= "col-xs-2"></div>
+<div class= "col-xs-3">
+<div class="checkbox">
+  <label><input type="checkbox" value="">Mystery</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="">Fiction</label>
+</div>
+<div class="checkbox disabled">
+  <label><input type="checkbox" value="" disabled>Thriller</label>
+</div>
+
+</div>
 <div class= "col-xs-9">
 <div data-ng-repeat="book in (filteredItems =(books | filter:filterPrice) )|orderBy:[orderByPrice]" class="col-md-4">
-<h3><strong>{{book.bookName}}</strong></h3>
+<h4><strong>{{book.bookName}}</strong></h4>
+<img data-ng-src="{{book.bookImage}}" alt="book.bookName" class="img-rounded" height="150px" width="150px">
 <p > {{book.bookAuthor}}</p>
 <span >Genre: </span>
 <span  data-ng-repeat="genre in book.genre"> {{genre}}</span>
-<p  data-ng-show="book.series"> Series: {{book.series}}</p>
-<p > {{book.pubDate | date}}</p>
+<!-- <p  data-ng-show="book.series"> Series: {{book.series}}</p> -->
+<!-- <p > {{book.pubDate | date}}</p> -->
 <p style="color: red"> {{book.price | currency}}</p>
 </div>
 </div>
