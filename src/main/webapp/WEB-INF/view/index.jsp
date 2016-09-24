@@ -12,6 +12,7 @@
 <link href="resources/styles/bootstrap.min.css" rel="stylesheet" />
 <script src="resources/scripts/angular.js" ></script>
 <script src="resources/scripts/angular-route.js" ></script>
+<script src="resources/scripts/dropdown.js" ></script>
 
 <style type="text/css">
 [ng\:cloak], [ng-cloak], .ng-cloak {

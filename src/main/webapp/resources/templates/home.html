@@ -1,14 +1,18 @@
-<select id="orderBy" data-ng-model="orderBy" >
-	<option value="Sort by Price">Sort by Price</option>
-	<option value="price-low-high">price: low - high</option>
-	<option value="price-high-low">price: high - low</option>
-</select>
-
 <div class= "container">
+<div class= "col-xs-2"></div>
+<div class= "col-xs-3">
+<select id="orderBy" data-ng-model="orderBy" class="form-control col-md-4">
+	<option value="Sort by Price">Sort by Price</option>
+	<option value="price-low-high">Price: low - high</option>
+	<option value="price-high-low">Price: high - low</option>
+</select>
+</div>
+</div>
+<div class= "container" data-ng-click="getBookInfo(book.bookId)">
 <div class= "col-xs-2"></div>
 <div class= "col-xs-9">
 <div data-ng-repeat="book in (filteredItems =(books | filter:filterPrice) )|orderBy:[orderByPrice]" class="col-md-4">
-<p style="color: black "> {{book.bookName}}</p>
+<h3><strong>{{book.bookName}}</strong></h3>
 <p > {{book.bookAuthor}}</p>
 <span >Genre: </span>
 <span  data-ng-repeat="genre in book.genre"> {{genre}}</span>
